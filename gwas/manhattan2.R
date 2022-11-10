@@ -1,5 +1,7 @@
 
-This is modified script of manhattan function from qqman library.
+# This is modified script of manhattan function from qqman library.
+# Turner, S.D. qqman: an R package for visualizing GWAS results 
+# using Q-Q and manhattan plots. biorXiv DOI: 10.1101/005165 (2014).
 
 manhattan2 = function (x, chr = "CHR", bp = "BP", p = "P", snp = "SNP", col = NULL, chrlabs = NULL, suggestiveline = -log10(1e-05), 
     genomewideline = -log10(5e-08), highlight = NULL, logp = TRUE, 
