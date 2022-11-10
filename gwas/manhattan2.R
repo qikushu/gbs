@@ -12,6 +12,9 @@
 # manhattan2(d, cex=0.5, col =cols, ylim=c(0,40))
 # dev.off()
 
+# download only this code in R.
+# source('https://raw.githubusercontent.com/qikushu/gbs/master/gwas/manhattan2.R')
+
 
 manhattan2 = function (x, chr = "CHR", bp = "BP", p = "P", snp = "SNP", col = NULL, chrlabs = NULL, suggestiveline = -log10(1e-05), 
     genomewideline = -log10(5e-08), highlight = NULL, logp = TRUE, 
