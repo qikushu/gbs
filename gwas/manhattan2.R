@@ -3,6 +3,16 @@
 # Turner, S.D. qqman: an R package for visualizing GWAS results 
 # using Q-Q and manhattan plots. biorXiv DOI: 10.1101/005165 (2014).
 
+# User allow to direct color of plots by chromosomes.
+# ylim can be apparently defined.
+
+# Example
+# library(qqman)
+# cols = c("#F5B090","#FCD7A1","#FFF9B1","#D7E7AF","#A5D4AD","#A2D7D4","#9FD9F6","#A3BCE2","#A59ACA","#CFA7CD","#F4B3D0","#F5B2B2")
+# manhattan2(d, cex=0.5, col =cols, ylim=c(0,40))
+# dev.off()
+
+
 manhattan2 = function (x, chr = "CHR", bp = "BP", p = "P", snp = "SNP", col = NULL, chrlabs = NULL, suggestiveline = -log10(1e-05), 
     genomewideline = -log10(5e-08), highlight = NULL, logp = TRUE, 
     annotatePval = NULL, annotateTop = TRUE, ylim = NULL, ...) 
