@@ -1,17 +1,17 @@
 #!/bin/bash
 
 ## USER SETTINGS
-RUN_PIPELINE='/home/gbsuser/tassel-5-standalone/run_pipeline.pl'
+RUN_PIPELINE='/home/gbsuser/git/tassel-5-standalone/run_pipeline.pl'
 ENZYME='KpnI-MspI'
 KEYFILE='key.txt'
 #TAXA='IBMGBSTaxaList.txt'
 #TNAME="IBM" 
 INPUT_DIR='fastq/'
-REFSEQ='/home/gbsuser/nipponbare_ref/IRGSP-1.0_genome.fasta'
-VCFTOOLS='/home/gbsuser/tool/vcftools_0.1.13/cpp/vcftools'
+REFSEQ='/home/gbsuser/refseq/IRGSP-1.0_genome.fasta'
+VCFTOOLS='/home/gbsuser/git/vcftools/src/cpp/vcftools'
 
 ## ANALYSIS PARAMETERS BY USERS
-BWA='/usr/local/bin/bwa'
+BWA='/home/gbsuser/git/bwa/bwa'
 
 #####################
 #MAIN
