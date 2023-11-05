@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 # --- HOW TO USE ---
-# less hapmap.txt | perl this_script.pl call_site.hapmap.txt A B ON F2_1-1,F2_1-2
+# less hapmap.txt | perl this_script.pl call_site.hapmap.txt Parent_A Parent_B IN F2_1-1,F2_1-2
 # --- OUTPUT ---
 # joinmap_CP.txt
 # joinmap_NNNP.txt
@@ -11,8 +11,8 @@
 # The hapmap file must contain parent GBS genotyping data.
 # The first and second argument values (ARGV) of the perl script, A and B, are the parental variety 
 # names in the hapmap file. 
-# The rhird argumet value directs inclusion of parental genotypes to the R/QTL format file.
-# The fourth argument value is the comma-delimited values of individual names which are excluded from
+# The third argumet value directs to include (IN) or not to include (OUT) parental genotypes to the R/QTL format file.
+# The fourth and consequent argument value is the comma-delimited values of individual names which are excluded from
 # converstion from hapmap to r/qtl format.
 
 
