@@ -1,19 +1,23 @@
+## Usage
+# Download this functions from the github repository
+#source("https://raw.githubusercontent.com/qikushu/gbs/master/drawGraphicalGenotype.R")
+
+# Read data (do not run)
+# plantGenoList = readGGdata("../Downloads/ABH_22WRCFn_8_ver2.0.csv")
+
+# plot ans save in PNG file (do not run)
+# png("output.png", width = 2400, height = 2000)
+# plotHorizontal(plantGenoList=plantGenoList,chrMaxLength=chrMaxLength, color_mapping=color_mapping)
+# dev.off()
+
+## Ohter parameters 
 # Total rice chromosome length of Nipponbare assembly in Mb 
 chrMaxLength <- c("1"=43.270923,	"2"=35.937250,	"3"=36.413819,	"4"=35.502694,"5"=29.958434,	"6"=31.248787,	"7"=29.697621,	"8"=28.443022,	"9"=23.012720,	"10"=23.207287,	"11"=29.02110612, "12"=27.531856)
 
 # Conversion rule of ABH genotypes and color code in output graphics.
-# color_mapping <- c("A" = "orange", "B" = "#00bfff", "H" = "red", "-" = "gray")
+color_mapping <- c("A" = "orange", "B" = "#00bfff", "H" = "red", "-" = "gray")
 
-# Read data
-plantGenoList = readGGdata("../Downloads/ABH_22WRCFn_8_ver2.0.csv")
-# plot ans save in PNG file
-png("output.png", width = 2400, height = 2000)
-plotHorizontal(plantGenoList=plantGenoList,chrMaxLength=chrMaxLength, color_mapping=color_mapping)
-dev.off()
-
-
-
-
+## Functions
 readGGdata = function(infile) {
 
     # Read data
