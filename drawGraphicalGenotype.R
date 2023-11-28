@@ -6,7 +6,7 @@
 # plantGenoList = readGGdata("test.csv")
 
 # Plot and save in PNG file (do not run)
-# png("output.png", width = 2400, height = 2000)
+# png("output.png", width = 2400, height = 500)
 # plotHorizontal(plantGenoList = plantGenoList, chrMaxLength = chrMaxLength, color_mapping = color_mapping)
 # dev.off()
 
@@ -56,7 +56,7 @@ plotHorizontal = function(plantGenoList, chrMaxLength, color_mapping) {
     # Spacing between plants
     plantInterval = 2
     # Width of horizontal bars for markers
-    width = 12
+    width = 6
 
     # Left margin spacing
     leftSpace = 10
