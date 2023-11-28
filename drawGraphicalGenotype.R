@@ -3,7 +3,7 @@
 #source("https://raw.githubusercontent.com/qikushu/gbs/master/drawGraphicalGenotype.R")
 
 # Read data (do not run)
-# plantGenoList = readGGdata("../Downloads/ABH_22WRCFn_8_ver2.0.csv")
+# plantGenoList = readGGdata("test.csv")
 
 # plot ans save in PNG file (do not run)
 # png("output.png", width = 2400, height = 2000)
