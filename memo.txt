@@ -1,0 +1,8 @@
+
+# LBimmputeの準備
+less 24SALF2-1_gbsplate1_mm0.8_maf0.1.vcf.gz | perl ~/git/gbs/prepareLBimpute.pl > new.vcf
+
+# LB imputeの実行　
+# parentsのカンマの左側が遺伝子型Aで表現したい親系統、右側が遺伝子型Bで表現したい親系統、ヘテロはHとなる
+
+java -Xmx2g -jar ~/git/LB-Impute/LB-Impute.jar -method impute -offspringimpute -f new.vcf -recombdist 10000000 -window 5 -o test.vcf -parents KD18,PATNAI
