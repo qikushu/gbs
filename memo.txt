@@ -1,8 +1,27 @@
+###################
+# LB-imputeの準備
+##################
+# LB-imputeはaltに複数の変異がある場合や、遺伝子型が変な場合は、処理が止まってしまい、実行できなくなる。それを防ぐために、このprepareLBimpute.plを通しておく
 
-# LBimmputeの準備
 less 24SALF2-1_gbsplate1_mm0.8_maf0.1.vcf.gz | perl ~/git/gbs/prepareLBimpute.pl > new.vcf
 
+#####################
 # LB imputeの実行　
-# parentsのカンマの左側が遺伝子型Aで表現したい親系統、右側が遺伝子型Bで表現したい親系統、ヘテロはHとなる
+#####################
+# -parentsオプションでは、カンマの左側が遺伝子型Aで表現したい親系統、右側が遺伝子型Bで表現したい親系統を指定する、ヘテロはHとなる
+
+# -fオプションでは、imputationしたいvcfファイルを指定する。
+
+# -windowオプションではHMMにて経路の確率を計算するときの隣接するマーカー座の数　たとえば-windows 5の場合は、隣接する5マーカー座の全経路の確率(生起確率x遷移確率)を計算し、その中から最も確率の高い経路を選び出す。windowサイズが大きいほど、リード数が浅い時でも正しい遺伝子型を推定できる可能性が高い。しかし計算する経路数が指数関数的に増大するため、計算時間が爆発的に多くなる場合があるので、注意する。
+
+# -recombdistオプションは1cM(だいたいr=0.01)相当の物理距離(bp)を入力する。ゲノムサイズによってこの値は変わるので注意する。この数が大きいとimputationの結果、組換えが多くなるように推定される。この数が小さいと、組換え数が少なくなるように推定される。データがおかしいと思ったら少しいじってもいいかもしれない。
 
 java -Xmx2g -jar ~/git/LB-Impute/LB-Impute.jar -method impute -offspringimpute -f new.vcf -recombdist 10000000 -window 5 -o test.vcf -parents KD18,PATNAI
+
+# 実行時間が長時間にわたる場合は、ターミナルによる接続がタイムアウトし、サーバー側から強制切断されてしまう場合がある。接続が切断された場合、実行中のコマンドは即座に強制終了される。それを防ぐためには、nohupコマンドと組み合わせて実行する
+
+nohup java -Xmx2g -jar ~/git/LB-Impute/LB-Impute.jar -method impute -offspringimpute -f new.vcf -recombdist 10000000 -window 5 -o test.vcf -parents KD18,PATNAI &
+
+# このように、実行したいコマンドの先頭にnohupといれ、最後に&マークを入れる
+# この場合は自分でターミナル接続を切断しても、処理を継続できる。
+
