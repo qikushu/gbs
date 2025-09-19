@@ -230,17 +230,27 @@ while(<stdin>){
 	} else {
  
 		#OUTPUT
-		for (my $i=0;$i<scalar(@oneline);$i++) {
-			my $flag = 0;
-			# Check exclude columns and print
-			foreach my $j (@exclude_numbers) {
-				$flag = 1 if ($i == $j);
-			}
-			my $printdata = "$oneline[$i]\t";
-			&cp_print($crosstype,$printdata,\%fh) if ($flag == 0) 
-			
-		}
-		&cp_print($crosstype,"\n",\%fh)
+#		for (my $i=0;$i<scalar(@oneline);$i++) {
+#			my $flag = 0;
+#			# Check exclude columns and print
+#			foreach my $j (@exclude_numbers) {
+#				$flag = 1 if ($i == $j);
+#			}
+#			my $printdata = "$oneline[$i]\t";
+#			&cp_print($crosstype,$printdata,\%fh) if ($flag == 0) 
+#			
+#		}
+#		&cp_print($crosstype,"\n",\%fh)
+
+		# OUTPUT（列除外を反映してから join）
+                my %skip = map { $_ => 1 } @exclude_numbers;  # 除外列をハッシュ化
+                my @out;
+                for (my $i = 0; $i < @oneline; $i++) {
+                        next if $skip{$i};
+                        push @out, $oneline[$i];
+                }
+                my $line = join("\t", @out) . "\n";
+                &cp_print($crosstype, $line, \%fh);
 	}
 }
 
